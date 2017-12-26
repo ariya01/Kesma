@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Retrofit</string>
+    <string name="nama">Nama</string>
+    <string name="nrp">NRP</string>
+    <string-array name="penghasilan">
+        <item>0</item>
+        <item>500000</item>
+        <item>1000000</item>
+        <item>2500000</item>
+        <item>4000000</item>
+        <item>5000000</item>
+        <item>6000000</item>
+        <item>7000000</item>
+    </string-array>
+</resources>
