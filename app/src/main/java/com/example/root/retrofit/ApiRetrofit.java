@@ -3,6 +3,7 @@ package com.example.root.retrofit;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
@@ -15,4 +16,7 @@ public interface ApiRetrofit {
     Call<ResponModel>kirim (@Field("nrp") String nrp,
                             @Field("nama") String nama,
                             @Field("penghasilan") String penghasila);
+
+    @GET("read.php")
+    Call <ResponModel> data();
 }

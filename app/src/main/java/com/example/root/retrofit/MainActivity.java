@@ -30,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.btn_tambah:
                     Intent intent = new Intent(MainActivity.this,InsertActivity.class);
                     startActivity(intent);
+                    break;
+                case R.id.btn_lihat:
+                    Intent intent1 = new Intent(MainActivity.this,ReadActivity.class);
+                    startActivity(intent1);
+                    break;
+
             }
         }
     };
