@@ -1,42 +1,66 @@
 package com.example.root.retrofit;
 
+
 import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import eu.long1.spacetablayout.SpaceTabLayout;
+
 public class MainActivity extends AppCompatActivity {
-    Button btn_tambah, btn_update,btn_delete,btn_lihat;
+    private SpaceTabLayout spaceTabLayout;
+    private ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btn_lihat = (Button)findViewById(R.id.btn_lihat);
-        btn_tambah = (Button)findViewById(R.id.btn_tambah);
-        btn_update = (Button)findViewById(R.id.btn_update);
-        btn_delete = (Button)findViewById(R.id.btn_delete);
-        btn_lihat.setOnClickListener(op);
-        btn_delete.setOnClickListener(op);
-        btn_tambah.setOnClickListener(op);
-        btn_update.setOnClickListener(op);
-    }
+        List<Fragment> fragmentList = new ArrayList<>();
+        fragmentList.add(new DataMahasiswaFragment());
+        fragmentList.add(new BeasiswaFragment());
+        fragmentList.add(new BukuFragment());
+        getSupportActionBar().setTitle("Data Mahasiswa");
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        spaceTabLayout = (SpaceTabLayout) findViewById(R.id.spaceTabLayout);
 
-    View.OnClickListener op = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            switch (view.getId())
-            {
-                case R.id.btn_tambah:
-                    Intent intent = new Intent(MainActivity.this,InsertActivity.class);
-                    startActivity(intent);
-                    break;
-                case R.id.btn_lihat:
-                    Intent intent1 = new Intent(MainActivity.this,ReadActivity.class);
-                    startActivity(intent1);
-                    break;
+        //we need the savedInstanceState to get the position
+        spaceTabLayout.initialize(viewPager, getSupportFragmentManager(),
+                fragmentList, savedInstanceState);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
-        }
-    };
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position==0)
+                    getSupportActionBar().setTitle("Data Mahasiswa");
+                else if (position==1)
+                    getSupportActionBar().setTitle("Data Buku");
+                else
+                    getSupportActionBar().setTitle("Data Beasiswa");
+            }
+
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        spaceTabLayout.saveState(outState);
+        super.onSaveInstanceState(outState);
+    }
+
 }

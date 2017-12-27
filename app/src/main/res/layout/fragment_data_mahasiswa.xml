@@ -1,0 +1,51 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.root.retrofit.DataMahasiswaFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       android:gravity="center"
+       android:background="#D6D6D6">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center">
+           <Button
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Tambah"
+               android:drawableTop="@drawable/handshake"
+               android:id="@+id/btn_tambah"/>
+           <Button
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Update"
+               android:drawableTop="@drawable/settings"
+               android:id="@+id/btn_update"/>
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center">
+           <Button
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/btn_delete"
+               android:text="Delete"
+               android:drawableTop="@drawable/puzzle"/>
+           <Button
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Lihat"
+               android:id="@+id/btn_lihat"
+               android:drawableTop="@drawable/folder"/>
+       </LinearLayout>
+
+   </LinearLayout>
+
+</FrameLayout>
