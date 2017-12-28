@@ -42,6 +42,14 @@ public class DataMahasiswaFragment extends Fragment {
                     Intent intent1 = new Intent(getActivity(),ReadActivity.class);
                     startActivity(intent1);
                     break;
+                case R.id.btn_delete:
+                    Intent intent2 = new Intent(getActivity(),DeleteActivity.class);
+                    startActivity(intent2);
+                    break;
+                case R.id.btn_update:
+                    Intent intent3 = new Intent(getActivity(),UpdateActivity.class);
+                    startActivity(intent3);
+                    break;
 
             }
         }

@@ -12,6 +12,8 @@
         <item>6000000</item>
         <item>7000000</item>
     </string-array>
+    <string name="update">Update Data</string>
+    <string name="pesanupdate">Apakah ingin mengupdate ?</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.circulardialog.CDialog;
+import com.example.circulardialog.extras.CDConstants;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,17 +39,32 @@ public class ReadActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponModel> call, Response<ResponModel> response) {
                 progressDialog.hide();
+                new CDialog(ReadActivity.this).createAlert("Berhasil",
+                        CDConstants.SUCCESS, CDConstants.LARGE)
+                        .setAnimation(CDConstants.SCALE_FROM_BOTTOM_TO_TOP)
+                        .setDuration(2000)
+                        .setPosition(CDConstants.CENTER)
+                        .setTextSize(CDConstants.LARGE_TEXT_SIZE)
+                        .show();
                 modelList = response.body().getResult();
-
                 adapter = new Adapter(ReadActivity.this,modelList);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }
 
             @Override
-            public void onFailure(Call<ResponModel> call, Throwable t) {
+            public void onFailure(Call<ResponModel> call, Throwable t)
+            {
                 progressDialog.hide();
+                new CDialog(ReadActivity.this).createAlert("Gagal",
+                        CDConstants.ERROR, CDConstants.LARGE)
+                        .setAnimation(CDConstants.SCALE_FROM_BOTTOM_TO_TOP)
+                        .setDuration(2000)
+                        .setPosition(CDConstants.CENTER)
+                        .setTextSize(CDConstants.LARGE_TEXT_SIZE)
+                        .show();
             }
         });
+
     }
 }

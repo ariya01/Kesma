@@ -1,11 +1,14 @@
 package com.example.root.retrofit;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.marcoscg.dialogsheet.DialogSheet;
 
 import java.util.List;
 
@@ -37,6 +40,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holderdata>
         holder.tv_nama.setText(readModel.getNama());
         holder.tv_nrp.setText(readModel.getNrp());
         holder.tv_penghasilan.setText(readModel.getPenghasilan());
+        holder.readModel = readModel;
     }
 
     @Override
@@ -46,6 +50,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holderdata>
 
     class Holderdata extends RecyclerView.ViewHolder{
         TextView tv_nama,tv_nrp,tv_penghasilan;
+        ReadModel readModel;
         public Holderdata(View itemView) {
             super(itemView);
             tv_nama=(TextView)itemView.findViewById(R.id.tv_nama);

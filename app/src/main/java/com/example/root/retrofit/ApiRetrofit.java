@@ -19,4 +19,15 @@ public interface ApiRetrofit {
 
     @GET("read.php")
     Call <ResponModel> data();
+    @FormUrlEncoded
+    @POST("cari.php")
+    Call<ResponModel>cari(@Field("search") String search);
+
+    @FormUrlEncoded
+    @POST("update.php")
+    Call<ResponModel>update (@Field("nrp") String nrp,
+                            @Field("nama") String nama,
+                            @Field("penghasilan") String penghasila);
+
+
 }
