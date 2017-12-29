@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class Retrofitserver {
-    public static final String url = "http://192.168.1.149/android/";
+    public static final String url = "http://10.151.12.253/android/";
 
     private static Retrofit retrofit;
 

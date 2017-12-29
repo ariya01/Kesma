@@ -13,6 +13,7 @@ import android.view.View;
 
 import com.example.circulardialog.CDialog;
 import com.example.circulardialog.extras.CDConstants;
+import com.github.silvestrpredko.dotprogressbar.DotProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,20 +26,18 @@ public class UpdateActivity extends AppCompatActivity implements SearchView.OnQu
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private ProgressDialog progressDialog;
+    private DotProgressBar dotProgressBar;
     private SwipeRefreshLayout swipeRefreshLayout;
     private List<ReadModel> modelList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
-        progressDialog = new ProgressDialog(this);
         recyclerView = (RecyclerView)findViewById(R.id.recycler2);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
-        progressDialog.setMessage("Loading");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+        dotProgressBar = (DotProgressBar)findViewById(R.id.dot_progress_bar);
+        dotProgressBar.setVisibility(View.VISIBLE);
         swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.refresh);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -48,7 +47,7 @@ public class UpdateActivity extends AppCompatActivity implements SearchView.OnQu
                 getdata.enqueue(new Callback<ResponModel>() {
                     @Override
                     public void onResponse(Call<ResponModel> call, Response<ResponModel> response) {
-                        progressDialog.hide();
+                        dotProgressBar.setVisibility(View.GONE);
                         new CDialog(UpdateActivity.this).createAlert("Telah Di Refresh",
                                 CDConstants.SUCCESS, CDConstants.LARGE)
                                 .setAnimation(CDConstants.SCALE_FROM_BOTTOM_TO_TOP)
@@ -65,7 +64,7 @@ public class UpdateActivity extends AppCompatActivity implements SearchView.OnQu
 
                     @Override
                     public void onFailure(Call<ResponModel> call, Throwable t) {
-                        progressDialog.hide();
+                        dotProgressBar.setVisibility(View.GONE);
                         new CDialog(UpdateActivity.this).createAlert("Gagal di refesh",
                                 CDConstants.ERROR, CDConstants.LARGE)
                                 .setAnimation(CDConstants.SCALE_FROM_BOTTOM_TO_TOP)
@@ -82,7 +81,8 @@ public class UpdateActivity extends AppCompatActivity implements SearchView.OnQu
         getdata.enqueue(new Callback<ResponModel>() {
             @Override
             public void onResponse(Call<ResponModel> call, Response<ResponModel> response) {
-                progressDialog.hide();
+                dotProgressBar.setVisibility(View.GONE);
+//                progressDialog.hide();
                 new CDialog(UpdateActivity.this).createAlert("Berhasil",
                         CDConstants.SUCCESS, CDConstants.LARGE)
                         .setAnimation(CDConstants.SCALE_FROM_BOTTOM_TO_TOP)
@@ -98,7 +98,7 @@ public class UpdateActivity extends AppCompatActivity implements SearchView.OnQu
 
             @Override
             public void onFailure(Call<ResponModel> call, Throwable t) {
-                progressDialog.hide();
+                dotProgressBar.setVisibility(View.GONE);
                 new CDialog(UpdateActivity.this).createAlert("Gagal",
                         CDConstants.ERROR, CDConstants.LARGE)
                         .setAnimation(CDConstants.SCALE_FROM_BOTTOM_TO_TOP)
@@ -119,7 +119,6 @@ public class UpdateActivity extends AppCompatActivity implements SearchView.OnQu
     @Override
     public boolean onQueryTextChange(String newText) {
         recyclerView.setVisibility(View.GONE);
-//        progressDialog.show();
         ApiRetrofit api = Retrofitserver.getclient().create(ApiRetrofit.class);
         Call<ResponModel>cari = api.cari(newText);
         cari.enqueue(new Callback<ResponModel>() {

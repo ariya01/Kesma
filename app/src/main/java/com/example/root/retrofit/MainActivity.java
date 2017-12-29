@@ -2,12 +2,14 @@ package com.example.root.retrofit;
 
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,23 @@ import eu.long1.spacetablayout.SpaceTabLayout;
 public class MainActivity extends AppCompatActivity {
     private SpaceTabLayout spaceTabLayout;
     private ViewPager viewPager;
+    boolean doubleBac = false;
+    @Override
+    public void onBackPressed() {
+        if (doubleBac)
+        {
+            super.onBackPressed();
+        }
+        this.doubleBac = true;
+        Toast.makeText(this, "Tekan Tombol BACK lagi untuk Keluar", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBac=false;
+            }
+        },1000);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
