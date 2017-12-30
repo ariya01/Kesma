@@ -14,7 +14,11 @@
     </string-array>
     <string name="update">Update Data</string>
     <string name="pesanupdate">Apakah ingin mengupdate ?</string>
-
+    <string name="gagalupdate">Update Gagal</string>
+    <string name="pesanGagal">Apakah ingin mencoba lagi ?</string>
+    <string name="gagal">Gagal</string>
+    <string name="cencel">Cencel</string>
+    <string name="cobalagi">Coba Lagi</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

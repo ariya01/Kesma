@@ -65,7 +65,7 @@ public class AdapterUpdate extends RecyclerView.Adapter<AdapterUpdate.Holder>{
                             .setPositiveButton("Update", new DialogSheet.OnPositiveClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Intent intent = new Intent(context,InsertActivity.class);
+                                    Intent intent = new Intent(context,UpdateDataActivity.class);
                                     intent.putExtra("nrp",readModel.getNrp());
                                     intent.putExtra("nama",readModel.getNama());
                                     intent.putExtra("penghasilan",readModel.getPenghasilan());

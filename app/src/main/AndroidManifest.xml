@@ -24,7 +24,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".DeleteActivity" />
-        <activity android:name=".UpdateActivity"></activity>
+        <activity android:name=".UpdateActivity" />
+        <activity android:name=".UpdateDataActivity"></activity>
     </application>
 
 </manifest>

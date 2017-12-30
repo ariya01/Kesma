@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.root.retrofit.ReadActivity">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:gravity="center">
+       <com.github.silvestrpredko.dotprogressbar.DotProgressBar
+           android:id="@+id/dot_progress_bar3"
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           custom:amount="5"
+           custom:duration="@android:integer/config_mediumAnimTime"
+           custom:endColor="@color/colorPrimaryDark"
+           custom:startColor="@color/colorPrimary"
+           custom:animationDirection="left"
+           />
+   </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/recycler">
     </android.support.v7.widget.RecyclerView>
-</LinearLayout>
+</RelativeLayout>

@@ -5,15 +5,14 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.root.retrofit.InsertActivity">
+    tools:context="com.example.root.retrofit.UpdateDataActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
         <com.github.silvestrpredko.dotprogressbar.DotProgressBar
-            android:id="@+id/dot_progress_bar2"
+            android:id="@+id/dot_progress_bar1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             custom:amount="5"
@@ -23,7 +22,6 @@
             custom:animationDirection="left"
             />
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="NRP"
-                android:id="@+id/et_nrp"
+                android:id="@+id/et_nrp1"
                 />
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
@@ -47,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nama"
-                android:id="@+id/et_nama"
+                android:id="@+id/et_nama1"
                 />
         </android.support.design.widget.TextInputLayout>
         <TextView
@@ -56,11 +54,12 @@
             android:hint="Penghasilan"
             android:textSize="17dp"
             android:layout_marginLeft="2dp"/>
+
         <Spinner
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner"
+            android:id="@+id/spinner1"
             android:entries="@array/penghasilan"
             >
         </Spinner>
@@ -69,8 +68,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Kirim"
-            android:id="@+id/btn_kirim"/>
+            android:text="Update"
+            android:id="@+id/btn_update1"/>
     </LinearLayout>
 
 </RelativeLayout>

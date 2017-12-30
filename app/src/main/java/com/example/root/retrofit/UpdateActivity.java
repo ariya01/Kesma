@@ -38,6 +38,7 @@ public class UpdateActivity extends AppCompatActivity implements SearchView.OnQu
         recyclerView.setLayoutManager(layoutManager);
         dotProgressBar = (DotProgressBar)findViewById(R.id.dot_progress_bar);
         dotProgressBar.setVisibility(View.VISIBLE);
+        getSupportActionBar().setTitle("Update Data Mahasiswa");
         swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.refresh);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -145,7 +146,7 @@ public class UpdateActivity extends AppCompatActivity implements SearchView.OnQu
         final MenuItem item = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
         searchView.setQueryHint("Cari Nama Mahasiswa");
-        searchView.setIconified(false);
+        searchView.setIconified(true);
         searchView.setOnQueryTextListener(this);
         return true;
     }
