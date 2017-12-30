@@ -2,6 +2,7 @@ package com.example.root.retrofit;
 
 import android.app.ProgressDialog;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,13 +30,14 @@ public class ReadActivity extends AppCompatActivity implements OnQueryTextListen
     private RecyclerView.LayoutManager layoutManager;
     private DotProgressBar dotProgressBar;
     private ProgressDialog progressDialog;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private List<ReadModel> modelList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read);
         progressDialog = new ProgressDialog(this);
-        recyclerView = (RecyclerView)findViewById(R.id.recycler);
+        recyclerView = (RecyclerView)findViewById(R.id.recycler2);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
         getSupportActionBar().setTitle("Melihat Detail Mahasiswa");
@@ -44,6 +46,45 @@ public class ReadActivity extends AppCompatActivity implements OnQueryTextListen
 //        progressDialog.show();
         dotProgressBar = (DotProgressBar)findViewById(R.id.dot_progress_bar3);
         dotProgressBar.setVisibility(View.VISIBLE);
+        swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.refesh2);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                ApiRetrofit api = Retrofitserver.getclient().create(ApiRetrofit.class);
+                Call<ResponModel> getdata =api.data();
+                getdata.enqueue(new Callback<ResponModel>() {
+                    @Override
+                    public void onResponse(Call<ResponModel> call, Response<ResponModel> response) {
+                        dotProgressBar.setVisibility(View.GONE);
+                        new CDialog(ReadActivity.this).createAlert("Telah Di Refresh",
+                                CDConstants.SUCCESS, CDConstants.LARGE)
+                                .setAnimation(CDConstants.SCALE_FROM_BOTTOM_TO_TOP)
+                                .setDuration(2000)
+                                .setPosition(CDConstants.CENTER)
+                                .setTextSize(CDConstants.LARGE_TEXT_SIZE)
+                                .show();
+                        modelList = response.body().getResult();
+                        adapter = new AdapterRead(ReadActivity.this,modelList);
+                        recyclerView.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponModel> call, Throwable t) {
+                        dotProgressBar.setVisibility(View.GONE);
+                        new CDialog(ReadActivity.this).createAlert("Gagal di refesh",
+                                CDConstants.ERROR, CDConstants.LARGE)
+                                .setAnimation(CDConstants.SCALE_FROM_BOTTOM_TO_TOP)
+                                .setDuration(2000)
+                                .setPosition(CDConstants.CENTER)
+                                .setTextSize(CDConstants.LARGE_TEXT_SIZE)
+                                .show();
+                    }
+                });
+            }
+        });
+
         ApiRetrofit api = Retrofitserver.getclient().create(ApiRetrofit.class);
         Call<ResponModel> getdata =api.data();
         getdata.enqueue(new Callback<ResponModel>() {
@@ -59,7 +100,7 @@ public class ReadActivity extends AppCompatActivity implements OnQueryTextListen
                         .setTextSize(CDConstants.LARGE_TEXT_SIZE)
                         .show();
                 modelList = response.body().getResult();
-                adapter = new Adapter(ReadActivity.this,modelList);
+                adapter = new AdapterRead(ReadActivity.this,modelList);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }
@@ -106,7 +147,7 @@ public class ReadActivity extends AppCompatActivity implements OnQueryTextListen
             @Override
             public void onResponse(Call<ResponModel> call, Response<ResponModel> response) {
                 modelList = response.body().getResult();
-                adapter = new AdapterUpdate(ReadActivity.this,modelList);
+                adapter = new AdapterRead(ReadActivity.this,modelList);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 recyclerView.setVisibility(View.VISIBLE);

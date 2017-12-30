@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.v4.widget.SwipeRefreshLayout
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,25 +7,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/refesh2"
     tools:context="com.example.root.retrofit.ReadActivity">
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:gravity="center">
-       <com.github.silvestrpredko.dotprogressbar.DotProgressBar
-           android:id="@+id/dot_progress_bar3"
-           android:layout_width="match_parent"
-           android:layout_height="50dp"
-           custom:amount="5"
-           custom:duration="@android:integer/config_mediumAnimTime"
-           custom:endColor="@color/colorPrimaryDark"
-           custom:startColor="@color/colorPrimary"
-           custom:animationDirection="left"
-           />
-   </LinearLayout>
-    <android.support.v7.widget.RecyclerView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recycler">
-    </android.support.v7.widget.RecyclerView>
-</RelativeLayout>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <com.github.silvestrpredko.dotprogressbar.DotProgressBar
+                android:id="@+id/dot_progress_bar3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                custom:amount="5"
+                custom:duration="@android:integer/config_mediumAnimTime"
+                custom:endColor="@color/colorPrimaryDark"
+                custom:startColor="@color/colorPrimary"
+                custom:animationDirection="left"
+                />
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycler2">
+        </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

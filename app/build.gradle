@@ -36,6 +36,7 @@ dependencies {
     compile 'com.github.silvestrpredko:dot-progress-bar:1.1'
     compile 'com.github.marcoscgdev:DialogSheet:1.0.4'
     compile 'com.android.support:recyclerview-v7:26.1.0'
+    compile 'com.github.florent37:arclayout:1.0.3'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
