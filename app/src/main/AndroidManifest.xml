@@ -31,7 +31,8 @@
             android:name=".DetailedActivity"
             android:label="@string/title_activity_detailed"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CariActivity"></activity>
+        <activity android:name=".CariActivity" />
+        <activity android:name=".ResultActivity"></activity>
     </application>
 
 </manifest>

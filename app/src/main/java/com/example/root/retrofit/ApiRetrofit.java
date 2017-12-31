@@ -33,4 +33,10 @@ public interface ApiRetrofit {
     @POST("delete.php")
     Call<ResponModel> delete(@Field("nrp") String id);
 
+    @FormUrlEncoded
+    @POST("search.php")
+    Call<ResponModel> cari2 (@Field("nrp")String nrp,
+                             @Field("nama") String nama,
+                             @Field("ukt") String penghasila);
+
 }
