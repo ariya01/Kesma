@@ -26,7 +26,11 @@
         <activity android:name=".DeleteActivity" />
         <activity android:name=".UpdateActivity" />
         <activity android:name=".UpdateDataActivity" />
-        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".DetailActivity" />
+        <activity
+            android:name=".DetailedActivity"
+            android:label="@string/title_activity_detailed"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -67,7 +67,7 @@ public class AdapterRead extends RecyclerView.Adapter<AdapterRead.Holder>
                             .setPositiveButton(R.string.Lihat, new DialogSheet.OnPositiveClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Intent intent = new Intent(context,DetailActivity.class);
+                                    Intent intent = new Intent(context,DetailedActivity.class);
                                     intent.putExtra("nrp",readModel.getNrp());
                                     intent.putExtra("nama",readModel.getNama());
                                     intent.putExtra("penghasilan",readModel.getPenghasilan());
