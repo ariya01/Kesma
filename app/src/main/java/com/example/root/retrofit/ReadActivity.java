@@ -36,7 +36,7 @@ public class ReadActivity extends AppCompatActivity implements OnQueryTextListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read);
-        progressDialog = new ProgressDialog(this);
+//        progressDialog = new ProgressDialog(this);
         recyclerView = (RecyclerView)findViewById(R.id.recycler2);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);

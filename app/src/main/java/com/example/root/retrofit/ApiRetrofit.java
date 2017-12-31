@@ -29,5 +29,8 @@ public interface ApiRetrofit {
                             @Field("nama") String nama,
                             @Field("penghasilan") String penghasila);
 
+    @FormUrlEncoded
+    @POST("delete.php")
+    Call<ResponModel> delete(@Field("nrp") String id);
 
 }

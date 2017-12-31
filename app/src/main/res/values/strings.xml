@@ -17,13 +17,15 @@
     <string name="gagalupdate">Update Gagal</string>
     <string name="pesanGagal">Apakah ingin mencoba lagi ?</string>
     <string name="gagal">Gagal</string>
-    <string name="cencel">Cencel</string>
+    <string name="cencel">Cancel</string>
     <string name="cobalagi">Coba Lagi</string>
     <string name="detail">Detail Data</string>
     <string name="pesandetail">Apakah ingin melihat lebih detail ? </string>
     <string name="Lihat">Lihat</string>
     <string name="belum">Belum di Isi</string>
     <string name="ukt">UKT</string>
+    <string name="delete">Delete</string>
+    <string name="pesandelete">Apakah ingin menghapus data ?</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
