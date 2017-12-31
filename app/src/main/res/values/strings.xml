@@ -25,8 +25,20 @@
     <string name="belum">Belum di Isi</string>
     <string name="ukt">UKT</string>
     <string name="delete">Delete</string>
+    <string name="upat">Update</string>
+    <string name="tambah">Tambah</string>
+    <string name="buku">Buku</string>
+    <string name="kirim">Kirim</string>
+    <string name="beasiswa">Beasiswa</string>
+    <string name="mahasiswa">Mahasiswa</string>
     <string name="pesandelete">Apakah ingin menghapus data ?</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Sabar !!!!</string>
+    <string name="magang">PERSIAPAN MAGANG</string>
     <string name="title_activity_detailed">DetailedActivity</string>
+    <string name="edit">Edit</string>
+    <string name="hapus">Hapus</string>
+    <string name="cari">Search</string>
+    <string name="belumdiisi">Belum di isi</string>
+    <string name="titik">:</string>
 </resources>

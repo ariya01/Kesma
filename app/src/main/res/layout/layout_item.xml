@@ -38,17 +38,17 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2.5"
-                        android:text="NRP"/>
+                        android:text="@string/nrp"/>
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text=":"
+                        android:text="@string/titik"
                         android:layout_weight="0.5"/>
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
-                        android:text="Belum di isi"
+                        android:text="@string/belum"
                         android:id="@+id/tv_nrp"/>
                 </LinearLayout>
                 <LinearLayout
@@ -60,17 +60,17 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2.5"
-                        android:text="Nama"/>
+                        android:text="@string/nama"/>
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text=":"
+                        android:text="@string/titik"
                         android:layout_weight="0.5"/>
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
-                        android:text="Belum di isi"
+                        android:text="@string/belum"
                         android:id="@+id/tv_nama"/>
                 </LinearLayout>
                 <LinearLayout
@@ -82,17 +82,17 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2.5"
-                        android:text="UKT"/>
+                        android:text="@string/ukt"/>
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text=":"
+                        android:text="@string/titik"
                         android:layout_weight="0.5"/>
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
-                        android:text="Belum di isi"
+                        android:text="@string/belum"
                         android:id="@+id/tv_ukt"/>
                 </LinearLayout>
             </LinearLayout>

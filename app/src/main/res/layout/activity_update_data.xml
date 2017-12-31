@@ -34,7 +34,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="NRP"
+                android:hint="@string/nrp"
                 android:id="@+id/et_nrp1"
                 />
         </android.support.design.widget.TextInputLayout>
@@ -44,14 +44,14 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nama"
+                android:hint="@string/nama"
                 android:id="@+id/et_nama1"
                 />
         </android.support.design.widget.TextInputLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Penghasilan"
+            android:hint="@string/ukt"
             android:textSize="17dp"
             android:layout_marginLeft="2dp"/>
 
@@ -68,7 +68,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Update"
+            android:text="@string/upat"
+            android:backgroundTint="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             android:id="@+id/btn_update1"/>
     </LinearLayout>
 

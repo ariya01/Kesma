@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D6D6D6"
     tools:context="com.example.root.retrofit.DataMahasiswaFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -10,7 +11,7 @@
        android:layout_height="match_parent"
        android:orientation="vertical"
        android:gravity="center"
-       android:background="#D6D6D6">
+       android:layout_marginBottom="15dp">
        <LinearLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
@@ -18,13 +19,24 @@
            <Button
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="Tambah"
+               android:id="@+id/btn_cari"
+               android:text="@string/cari"
+               android:drawableTop="@drawable/curriculum"/>
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center">
+           <Button
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/tambah"
                android:drawableTop="@drawable/handshake"
                android:id="@+id/btn_tambah"/>
            <Button
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="Update"
+               android:text="@string/upat"
                android:drawableTop="@drawable/settings"
                android:id="@+id/btn_update"/>
        </LinearLayout>
@@ -36,16 +48,15 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:id="@+id/btn_delete"
-               android:text="Delete"
+               android:text="@string/hapus"
                android:drawableTop="@drawable/puzzle"/>
            <Button
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="Lihat"
+               android:text="@string/Lihat"
                android:id="@+id/btn_lihat"
                android:drawableTop="@drawable/folder"/>
        </LinearLayout>
-
    </LinearLayout>
 
 </FrameLayout>

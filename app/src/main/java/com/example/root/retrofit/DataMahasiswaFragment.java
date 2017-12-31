@@ -13,7 +13,7 @@ import android.widget.Button;
 
 public class DataMahasiswaFragment extends Fragment {
 
-    Button btn_tambah, btn_update,btn_delete,btn_lihat;
+    Button btn_cari,btn_tambah, btn_update,btn_delete,btn_lihat;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -23,7 +23,9 @@ public class DataMahasiswaFragment extends Fragment {
         btn_tambah = (Button)view.findViewById(R.id.btn_tambah);
         btn_update = (Button)view.findViewById(R.id.btn_update);
         btn_delete = (Button)view.findViewById(R.id.btn_delete);
+        btn_cari = (Button)view.findViewById(R.id.btn_cari);
         btn_lihat.setOnClickListener(op);
+        btn_cari.setOnClickListener(op);
         btn_delete.setOnClickListener(op);
         btn_tambah.setOnClickListener(op);
         btn_update.setOnClickListener(op);
@@ -49,6 +51,10 @@ public class DataMahasiswaFragment extends Fragment {
                 case R.id.btn_update:
                     Intent intent3 = new Intent(getActivity(),UpdateActivity.class);
                     startActivity(intent3);
+                    break;
+                case R.id.btn_cari:
+                    Intent intent4 = new Intent(getActivity(),CariActivity.class);
+                    startActivity(intent4);
                     break;
 
             }

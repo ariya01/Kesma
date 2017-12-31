@@ -15,6 +15,12 @@
         android:layout_height="wrap_content"
         app:layout_behavior="eu.long1.spacetablayout.SpaceTabLayoutBehavior"
         app:number_of_tabs="three"
-        app:starting_position="one" />
+        app:starting_position="one"
+        app:icon_one="@drawable/users"
+        app:text_one="@string/mahasiswa"
+        app:icon_two="@drawable/archive"
+        app:text_two="@string/buku"
+        app:icon_three="@drawable/notepad"
+        app:text_three="@string/beasiswa"/>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Data Mahasiswa");
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         spaceTabLayout = (SpaceTabLayout) findViewById(R.id.spaceTabLayout);
-
         //we need the savedInstanceState to get the position
         spaceTabLayout.initialize(viewPager, getSupportFragmentManager(),
                 fragmentList, savedInstanceState);
