@@ -83,7 +83,63 @@ public class NotifFragment extends Fragment implements View.OnClickListener,Radi
 
     @Override
     public void onClick(View view) {
+        sendpush();
+        Log.d(TAG, "onClick: beneran nih");
+    }
 
+    private void sendpush() {
+        if (kirimsemua)
+        {
+            sendmultiple();
+        }
+        else
+        {
+            sendsingle();
+        }
+    }
+
+    private void sendsingle() {
+        final String title = et_judul.getText().toString();
+        final String message = et_pesan.getText().toString();
+        final String image = et_gambar.getText().toString();
+        final String email = spinner.getSelectedItem().toString();
+
+        Log.d(TAG, "sendsingle: "+email);
+
+        ApiRetrofit api = Retrofitserver.getclient().create(ApiRetrofit.class);
+        Call<DeviceModel> kirimsatu = api.kirimkanpesan(title,message,image,email);
+        kirimsatu.enqueue(new Callback<DeviceModel>() {
+            @Override
+            public void onResponse(Call<DeviceModel> call, Response<DeviceModel> response) {
+                Log.d(TAG, "onResponse: berhasil");                
+            }
+
+            @Override
+            public void onFailure(Call<DeviceModel> call, Throwable t) {
+                Log.d(TAG, "onFailure: gagal");
+            }
+        });
+    }
+
+    private void sendmultiple()
+    {
+        final String title = et_judul.getText().toString();
+        final String message = et_pesan.getText().toString();
+        final String image = et_gambar.getText().toString();
+
+        ApiRetrofit api = Retrofitserver.getclient().create(ApiRetrofit.class);
+        Call<DeviceModel> kirimkan = api.kirimpesansemua(title,message,image);
+        kirimkan.enqueue(new Callback<DeviceModel>() {
+            @Override
+            public void onResponse(Call<DeviceModel> call, Response<DeviceModel> response) {
+                Log.d(TAG, "onResponse: berhasil");
+            }
+
+            @Override
+            public void onFailure(Call<DeviceModel> call, Throwable t) {
+                Log.d(TAG, "onFailure: gagal");
+            }
+        });
     }
 
     @Override

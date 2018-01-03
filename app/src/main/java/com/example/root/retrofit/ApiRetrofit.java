@@ -47,4 +47,17 @@ public interface ApiRetrofit {
     @GET("GetRegisteredDevices.php")
     Call<DeviceModel> devicenya ();
 
+    @FormUrlEncoded
+    @POST("sendSinglePush.php")
+    Call<DeviceModel> kirimkanpesan (@Field("title") String judul,
+                                     @Field("message") String pesan,
+                                     @Field("image") String image,
+                                     @Field("email") String email);
+
+    @FormUrlEncoded
+    @POST("sendMultiplePush.php")
+    Call<DeviceModel> kirimpesansemua (@Field("title") String judul,
+                                       @Field("message") String pesan,
+                                       @Field("image") String image);
+
 }
