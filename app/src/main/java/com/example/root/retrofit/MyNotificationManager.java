@@ -33,13 +33,7 @@ public class MyNotificationManager {
     //parameters are title for message title, message for message text, url of the big image and an intent that will open
     //when you will tap on the notification
     public void showBigNotification(String title, String message, String url, Intent intent) {
-        PendingIntent resultPendingIntent =
-                PendingIntent.getActivity(
-                        mCtx,
-                        ID_BIG_NOTIFICATION,
-                        intent,
-                        PendingIntent.FLAG_UPDATE_CURRENT
-                );
+        PendingIntent resultPendingIntent = PendingIntent.getActivity(mCtx,ID_BIG_NOTIFICATION,intent,PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.BigPictureStyle bigPictureStyle = new NotificationCompat.BigPictureStyle();
         bigPictureStyle.setBigContentTitle(title);
         bigPictureStyle.setSummaryText(Html.fromHtml(message).toString());
@@ -54,6 +48,8 @@ public class MyNotificationManager {
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setLargeIcon(BitmapFactory.decodeResource(mCtx.getResources(), R.mipmap.ic_launcher))
                 .setContentText(message)
+                .setVibrate(new long[]{Notification.DEFAULT_VIBRATE})
+                .setPriority(Notification.PRIORITY_MAX)
                 .build();
 
         notification.flags |= Notification.FLAG_AUTO_CANCEL;
@@ -84,6 +80,8 @@ public class MyNotificationManager {
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setLargeIcon(BitmapFactory.decodeResource(mCtx.getResources(), R.mipmap.ic_launcher))
                 .setContentText(message)
+                .setVibrate(new long[]{Notification.DEFAULT_VIBRATE})
+                .setPriority(Notification.PRIORITY_MAX)
                 .build();
 
         notification.flags |= Notification.FLAG_AUTO_CANCEL;

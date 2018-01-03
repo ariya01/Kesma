@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
+            android:id="@+id/gambarnya"
             android:src="@drawable/boy" />
     </com.github.florent37.arclayout.ArcLayout>
     <LinearLayout

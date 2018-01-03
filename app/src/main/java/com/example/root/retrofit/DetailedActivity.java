@@ -1,6 +1,7 @@
 package com.example.root.retrofit;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.internal.NavigationMenu;
 import android.support.design.widget.FloatingActionButton;
@@ -9,8 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.ceylonlabs.imageviewpopup.ImagePopup;
 import com.example.circulardialog.CDialog;
 import com.example.circulardialog.extras.CDConstants;
 import com.marcoscg.dialogsheet.DialogSheet;
@@ -23,6 +26,7 @@ import retrofit2.Response;
 public class DetailedActivity extends AppCompatActivity {
     private TextView tv_nama,tv_nrp,tv_ukt;
     private FabSpeedDial fabSpeedDial;
+    private ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,22 @@ public class DetailedActivity extends AppCompatActivity {
         tv_nama.setText(data.getStringExtra("nama"));
         tv_nrp.setText(data.getStringExtra("nrp"));
         tv_ukt.setText(data.getStringExtra("penghasilan"));
+        final ImagePopup imagePopup = new ImagePopup(this);
+        imagePopup.setWindowHeight(800); // Optional
+        imagePopup.setWindowWidth(800); // Optional
+        imagePopup.setBackgroundColor(Color.BLACK);  // Optional
+        imagePopup.setFullScreen(true); // Optional
+        imagePopup.setHideCloseIcon(true);  // Optional
+        imagePopup.setImageOnClickClose(true);  // Optional
+        imageView = (ImageView)findViewById(R.id.gambarnya);
+        imagePopup.initiatePopup(imageView.getDrawable());
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imagePopup.viewPopup();
+            }
+        });
 
         fabSpeedDial.setMenuListener(new FabSpeedDial.MenuListener() {
             @Override
