@@ -39,4 +39,12 @@ public interface ApiRetrofit {
                              @Field("nama") String nama,
                              @Field("ukt") String penghasila);
 
+    @FormUrlEncoded
+    @POST("RegisterDevice.php")
+    Call<ResponModel> tokennya (@Field("token") String token,
+                              @Field("email") String email);
+
+    @GET("GetRegisteredDevices.php")
+    Call<DeviceModel> devicenya ();
+
 }

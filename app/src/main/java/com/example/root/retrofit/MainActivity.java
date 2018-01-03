@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         fragmentList.add(new DataMahasiswaFragment());
         fragmentList.add(new BeasiswaFragment());
         fragmentList.add(new BukuFragment());
+        fragmentList.add(new UpdateFragment());
+        fragmentList.add(new NotifFragment());
         getSupportActionBar().setTitle("Data Mahasiswa");
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         spaceTabLayout = (SpaceTabLayout) findViewById(R.id.spaceTabLayout);
